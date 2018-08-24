@@ -27,11 +27,8 @@ setup(
     author_email='mwiens91@gmail.com',
     license='MIT',
     classifiers=[
-        'Development Status :: 4 - Beta',
         'Intended Audience :: End Users/Desktop',
         'License :: OSI Approved :: MIT License',
-        'Natural Language :: English',
-        'Operating System :: Unix',
         'Programming Language :: Python :: 3 :: Only',
     ],
     packages=['kbstopwatch'],
