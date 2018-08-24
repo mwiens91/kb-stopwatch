@@ -10,7 +10,7 @@ to run this as root. But compromises, right?
 
 Anyway, this is good for ad-hoc speedrunning. Enjoy!
 
-## Usage
+## Installation
 
 Run directly from source with
 
@@ -29,3 +29,9 @@ and run with
 ```
 sudo kb-stopwatch
 ```
+
+## Usage
+
+Press the control key, which currently is restricted to space, to start
+the stopwatch. Hit the control key again to stop the timer. Repeat as
+many times as desired.
