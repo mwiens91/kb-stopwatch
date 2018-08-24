@@ -34,6 +34,7 @@ setup(
         'Operating System :: Unix',
         'Programming Language :: Python :: 3 :: Only',
     ],
+    packages=['kbstopwatch'],
     entry_points={
         'console_scripts': ['kb-stopwatch = kbstopwatch.main:main'],
     },
