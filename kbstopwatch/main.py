@@ -9,7 +9,7 @@ import keyboard
 from .version import NAME, DESCRIPTION, VERSION
 
 # Control keys
-CONTROL_KEY = 'space'
+CONTROL_KEY_DEFAULT = 'space'
 
 
 def format_time(seconds):
@@ -56,18 +56,25 @@ def main():
         prog=NAME,
         description="%(prog)s - " + DESCRIPTION,)
     parser.add_argument(
+        '--control-key',
+        default=CONTROL_KEY_DEFAULT,
+        help="key to start and stop the stopwatch",)
+    parser.add_argument(
         '--version',
         action='version',
         version="%(prog)s " + VERSION)
 
-    parser.parse_args()
+    runtime_args = parser.parse_args()
+
+    # Get the control key
+    control_key = runtime_args.control_key
 
     # Exit gracefully from keyboard interrupt
     signal.signal(signal.SIGINT, exit_program)
 
     while True:
         # Wait for control key
-        keyboard.wait(CONTROL_KEY)
+        keyboard.wait(control_key)
 
         # Time!
         start_time = time.time()
@@ -78,7 +85,7 @@ def main():
             args=(stop_event, start_time)).start()
 
         # Stop time!
-        keyboard.wait(CONTROL_KEY)
+        keyboard.wait(control_key)
         stop_event.set()
 
         # Print final time
