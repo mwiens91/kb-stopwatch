@@ -31,6 +31,11 @@ sudo kb-stopwatch
 
 ## Usage
 
-Press the control key, which currently is restricted to space, to start
-the stopwatch. Hit the control key again to stop the timer. Repeat as
-many times as desired.
+Press the control key, which you can set with
+
+```
+kb-stopwatch --control-key 'keyname'
+```
+
+(defaults to `'space'`), to start the stopwatch. Hit the control key
+again to stop the timer. Repeat.
