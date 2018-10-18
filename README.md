@@ -1,5 +1,6 @@
 [![PyPI](https://img.shields.io/pypi/v/kb-stopwatch.svg)](https://pypi.org/project/kb-stopwatch/)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/kb-stopwatch.svg)](https://pypi.org/project/kb-stopwatch/)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 
 # kb-stopwatch
 

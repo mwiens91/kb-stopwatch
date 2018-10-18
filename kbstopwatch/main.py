@@ -9,7 +9,7 @@ import keyboard
 from .version import NAME, DESCRIPTION, VERSION
 
 # Control keys
-CONTROL_KEY_DEFAULT = 'space'
+CONTROL_KEY_DEFAULT = "space"
 
 
 def format_time(seconds):
@@ -26,8 +26,8 @@ def format_time(seconds):
         of seconds passed in.
     """
     hours = seconds // 3600
-    minutes = (seconds - (hours*3600)) // 60
-    seconds = seconds - (hours*3600) - (minutes*60)
+    minutes = (seconds - (hours * 3600)) // 60
+    seconds = seconds - (hours * 3600) - (minutes * 60)
     time_elapsed = "{:02.0f}:{:02.0f}:{:06.3f}".format(hours, minutes, seconds)
     return time_elapsed
 
@@ -41,7 +41,7 @@ def timer_thread(event, start_time):
         start_time: A float specifying the starting time.
     """
     while not event.isSet():
-        print(format_time(time.time() - start_time), end='\r')
+        print(format_time(time.time() - start_time), end="\r")
 
 
 def exit_program(*_, **__):
@@ -53,16 +53,16 @@ def main():
     """The main function."""
     # Add CLI to display help or the version
     parser = argparse.ArgumentParser(
-        prog=NAME,
-        description="%(prog)s - " + DESCRIPTION,)
+        prog=NAME, description="%(prog)s - " + DESCRIPTION
+    )
     parser.add_argument(
-        '--control-key',
+        "--control-key",
         default=CONTROL_KEY_DEFAULT,
-        help="key to start and stop the stopwatch",)
+        help="key to start and stop the stopwatch",
+    )
     parser.add_argument(
-        '--version',
-        action='version',
-        version="%(prog)s " + VERSION)
+        "--version", action="version", version="%(prog)s " + VERSION
+    )
 
     runtime_args = parser.parse_args()
 
@@ -81,8 +81,8 @@ def main():
 
         stop_event = threading.Event()
         timer = threading.Thread(
-            target=timer_thread,
-            args=(stop_event, start_time)).start()
+            target=timer_thread, args=(stop_event, start_time)
+        ).start()
 
         # Stop time!
         keyboard.wait(control_key)
